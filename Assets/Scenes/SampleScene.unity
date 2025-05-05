@@ -135,10 +135,6 @@ PrefabInstance:
       value: FireEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 6615386738595924979, guid: 3d291419b56b0e64386200ab7e0eccf7, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6615386738595924979, guid: 3d291419b56b0e64386200ab7e0eccf7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.247158
       objectReference: {fileID: 0}
@@ -178,20 +174,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2765042649987639540, guid: 3d291419b56b0e64386200ab7e0eccf7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6273268511535198125, guid: 3d291419b56b0e64386200ab7e0eccf7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1997869002}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d291419b56b0e64386200ab7e0eccf7, type: 3}
---- !u!1 &6953383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6273268511535198125, guid: 3d291419b56b0e64386200ab7e0eccf7, type: 3}
-  m_PrefabInstance: {fileID: 6953382}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &24505578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1234,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638612968}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.InputSystem.Samples.RebindUI.RebindActionUI,
           Unity.InputSystem.RebindingUI
         m_MethodName: ResetToDefault
@@ -1560,8 +1547,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 638612967}
-  - component: {fileID: 638612968}
-  - component: {fileID: 638612969}
   m_Layer: 0
   m_Name: TestRebind
   m_TagString: Untagged
@@ -1588,30 +1573,6 @@ Transform:
   - {fileID: 360825143}
   m_Father: {fileID: 775703212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &638612968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638612966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc11d99b1a6682f4cbc4aba1fcd9ac5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &638612969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 638612966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b6c2da2db9374dada6761b5e35121c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &642618712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4956548510709933802, guid: 38a7a6877edce004d9aec92d31e53f57, type: 3}
@@ -2190,10 +2151,6 @@ PrefabInstance:
       value: ElectroEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 6615386738595924979, guid: 4dfc023204f141f438e4847caf62674a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6615386738595924979, guid: 4dfc023204f141f438e4847caf62674a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.4724
       objectReference: {fileID: 0}
@@ -2444,10 +2401,6 @@ PrefabInstance:
     - target: {fileID: 6273268511535198125, guid: 39cd8e13a38e31240816ed29f31602f5, type: 3}
       propertyPath: m_Name
       value: TreeEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 6615386738595924979, guid: 39cd8e13a38e31240816ed29f31602f5, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6615386738595924979, guid: 39cd8e13a38e31240816ed29f31602f5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3830,7 +3783,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 638612968}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.InputSystem.Samples.RebindUI.RebindActionUI,
           Unity.InputSystem.RebindingUI
         m_MethodName: StartInteractiveRebind
@@ -4414,10 +4367,6 @@ PrefabInstance:
       value: FreesEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 6615386738595924979, guid: 5551f8155f3ca89438813ab151c5e300, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6615386738595924979, guid: 5551f8155f3ca89438813ab151c5e300, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.776188
       objectReference: {fileID: 0}
@@ -4457,65 +4406,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -2187666324164620792, guid: 5551f8155f3ca89438813ab151c5e300, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6273268511535198125, guid: 5551f8155f3ca89438813ab151c5e300, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1983490389}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5551f8155f3ca89438813ab151c5e300, type: 3}
---- !u!1 &1983490388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6273268511535198125, guid: 5551f8155f3ca89438813ab151c5e300, type: 3}
-  m_PrefabInstance: {fileID: 1983490387}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1983490389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983490388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de829ca4588529340b07f63e0750145f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <_speedOfRotate>k__BackingField: 1
-  <_speedOfMove>k__BackingField: 5
-  <_minDistanceLookTarget>k__BackingField: 25
-  <_minDistanceFollowTarget>k__BackingField: 15
-  _timeOfLastRotation: 0
-  <_timeRotation>k__BackingField: 0
-  <_isInCollision>k__BackingField: 0
-  <_dierectionOfRotate>k__BackingField: {x: 0, y: 0, z: 0}
 --- !u!4 &1997869001 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6615386738595924979, guid: 3d291419b56b0e64386200ab7e0eccf7, type: 3}
   m_PrefabInstance: {fileID: 6953382}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1997869002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6953383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 018b80d5d8d4fbf4d91a2d74b1f23fe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <_speedOfRotate>k__BackingField: 1
-  <_speedOfMove>k__BackingField: 5
-  <_minDistanceLookTarget>k__BackingField: 25
-  <_minDistanceFollowTarget>k__BackingField: 15
-  _timeOfLastRotation: 0
-  <_timeRotation>k__BackingField: 0
-  <_isInCollision>k__BackingField: 0
-  <_dierectionOfRotate>k__BackingField: {x: 0, y: 0, z: 0}
 --- !u!1 &2085003489
 GameObject:
   m_ObjectHideFlags: 0

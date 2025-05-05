@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyInitBexaviors : MonoBehaviour
+public class EnemyInitBexaviors  
 {
      
 public IEnemyIdel idle { get; private set; }

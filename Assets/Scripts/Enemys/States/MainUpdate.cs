@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.OnScreen.OnScreenStick;
 
 public class MainUpdate : MonoBehaviour
 {
-    private Dictionary<EnemyBase, EnemyStateHandler> _enemyStateHans = new();
-    private Dictionary<EnemyBase, EnemyInitBexaviors> _initBexaviors = new();
+    private Dictionary<EnemyBase, EnemyStateHandler> statesHandler = new();
+    private Dictionary<EnemyBase, EnemyInitBexaviors> behaviourHandler = new();
     private List<EnemyBase> _enemyBases = new();
 
     private void Awake()
@@ -18,12 +19,14 @@ public class MainUpdate : MonoBehaviour
     }
     private void Start()
     {
-        foreach(EnemyBase e in _enemyBases)
+        foreach(var enemy in _enemyBases)
         {
-            var enemyBex = new EnemyInitBexaviors();
-            var enemyState = new EnemyStateHandler();
-            enemyState?.SetState(new EnemyIdleState(enemyBex.idle));
-            InitBexaviours(e, enemyBex);
+            var behaviour = new EnemyInitBexaviors();
+            var state = new EnemyStateHandler();
+            state?.SetState(new EnemyIdleState(behaviour.idle));
+            InitBexaviours(enemy, behaviour);
+            statesHandler[enemy] = state;
+            behaviourHandler[enemy] = behaviour;
         }
     }
     private void OnDisable()
@@ -31,9 +34,9 @@ public class MainUpdate : MonoBehaviour
     }
     void Update()
     {
-        foreach (EnemyStateHandler eSH in _enemyStateHans.Values)
+        foreach (var behaviour in statesHandler.Values)
         {
-            eSH?.UpdateState();
+            behaviour?.UpdateState();
         }
         foreach (var enemy in _enemyBases)// добавил вызов функции
             ChangeStates(enemy);
@@ -41,33 +44,33 @@ public class MainUpdate : MonoBehaviour
     }
     private void LateUpdate()
     {
-        foreach (EnemyStateHandler eSH in _enemyStateHans.Values)
+        foreach (var behaviour in statesHandler.Values)
         {
-            eSH?.LateUpdateState();
+            behaviour?.LateUpdateState();
         }
     }
     private void FixedUpdate()
     {
-        foreach (EnemyStateHandler eSH in _enemyStateHans.Values)
+        foreach (var behaviour in statesHandler.Values)
         {
-            eSH?.FixedUpdateState();
+            behaviour?.FixedUpdateState();
         }
     }
     private void ChangeStates(EnemyBase e) // забыл вызвать функцию в update
     {
-        var bex = _initBexaviors[e];
-        var state = _enemyStateHans[e];
+        var behaviour = behaviourHandler[e];
+        var state = statesHandler[e];
         if (e.IsIdle)
         { 
-            state?.SetState(new EnemyIdleState(bex.idle));// везде добавил опператор <?> для обработки исключеней 
+            state?.SetState(new EnemyIdleState(behaviour.idle));// везде добавил опператор <?> для обработки исключеней 
         }
         else if (e.IsFollowTarget)
         {
-            state?.SetState(new EnemyFollowStates(bex.followTar));
+            state?.SetState(new EnemyFollowStates(behaviour.followTar));
         }
         else if (e.IsRandomMove)
         {
-            state?.SetState(new EnemyMoveState(bex.ranMove));
+            state?.SetState(new EnemyMoveState(behaviour.ranMove));
         }
     }
 
