@@ -21,6 +21,7 @@ public class InputSystemTest : MonoBehaviour
     private void Update()
     {
         OnMove?.Invoke(_inputActionUnity.ReadValue<Vector2>());
+        Debug.Log(_inputActionUnity.ReadValue<Vector2>());
     }
     private void OnEnable()
     {
