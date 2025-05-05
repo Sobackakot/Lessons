@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyBase : MonoBehaviour 
+public abstract class EnemyBase : MonoBehaviour // должен реалтзовать интерфейс например IUnitContext
 {
 public Rigidbody _myRb { get; private set; }
     public Transform _playerTr { get; private set; }
@@ -23,9 +23,12 @@ public Rigidbody _myRb { get; private set; }
     public bool _isInCollision { get; private set; }
     [field: SerializeField]
     public Vector3 _dierectionOfRotate { get; private set; } = Vector3.zero;
-    public bool IsFollow { get; private set; }
+    public bool IsLookTarget { get; private set; } // добавил новое свойство 
+    public bool IsRandomRotate{ get; private set; }// добавил новое свойство 
+    public bool IsFollowTarget { get; private set; }
     public bool IsRandomMove { get; private set; }
-    public bool IsIdel { get; private set; } = true;
+    public bool IsIdle { get; private set; } = true;
+    private float timeAFC; // время для idle
 
     void Awake()
     {
@@ -36,9 +39,11 @@ public Rigidbody _myRb { get; private set; }
     }
     private void Update()
     {
-        IsRandomMove = !IsIdel && !IsFollow;
-        IsFollow = IsMinDistanse(_minDistanceFollowTarget);
-        IsIdel = IsMinDistanse(_minDistanceLookTarget);
+        IsRandomMove = !IsIdle && !IsFollowTarget; // move Random = true  -  (если idle == false )
+        IsRandomRotate = !IsLookTarget; //rotate random = true - (если lockTarget == false )
+        IsFollowTarget = IsMinDistanse(_minDistanceFollowTarget); // follow = true  - (если близко к таргет)
+        IsLookTarget = IsMinDistanse(_minDistanceLookTarget); // loockTarget = true  - (если близко к таргет)
+        RandomIdleTime(); // idle == true - (если время не истекло )
     }
     public bool IsMinDistanse(float minDistance)
     {
@@ -53,8 +58,23 @@ public Rigidbody _myRb { get; private set; }
         float z = Random.Range(minValye, maxValye);
         return new Vector3(x, 0, z);
     }
-    
 
+    private void RandomIdleTime() // random time Idle
+    {
+        timeAFC -= Time.deltaTime;
+        if (timeAFC <= 0)
+        {
+            timeAFC = Random.Range(3f, 10f);
+            if (!IsFollowTarget)
+                StartCoroutine(IdleCoroutine());
+        }
+    }
+    private IEnumerator IdleCoroutine()
+    {
+        IsIdle = true;
+        yield return new WaitForSeconds(2.5f);
+        IsIdle = false;
+    }
 
     //public void Attack(Collision collision)
     //{
@@ -65,5 +85,5 @@ public Rigidbody _myRb { get; private set; }
     //    }
     //    _isInCollision = true;
     //}
-    
+
 }

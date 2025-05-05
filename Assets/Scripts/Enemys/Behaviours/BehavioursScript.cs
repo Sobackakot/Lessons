@@ -20,7 +20,7 @@ public class EnemyFollowPlayer : EnemyLookRotate
     {
         _enemyTr = enemy._enemyTr;
         _playerTr = enemy._playerTr;
-        if (enemy.IsMinDistanse(enemy._minDistanceFollowTarget))
+        if (enemy.IsFollowTarget)// заменил вызов проверок на свойство из EnemyBase
         {
            Moving(_playerTr.position - _enemyTr.position);
         }
@@ -54,7 +54,7 @@ public class EnemyRandomMove : EnemyRandomRotate
     {
         _enemyTr = enemy._enemyTr;
         _playerTr = enemy._playerTr;
-        if (!enemy.IsMinDistanse(enemy._minDistanceLookTarget))
+        if (enemy.IsRandomMove)// заменил вызов проверок на свойство из EnemyBase
         {
             Moving(_enemyTr.forward);
         }
@@ -125,7 +125,7 @@ public class EnemyLookRotate : EnemyRotate
     {
         _enemyTr = enemy._enemyTr;
         _playerTr = enemy._playerTr;
-        if (enemy.IsMinDistanse(enemy._minDistanceLookTarget))
+        if (enemy.IsLookTarget) // заменил вызов проверок на свойство из EnemyBase
         {
             Vector3 dierection = _playerTr.position - _enemyTr.position;
             dierection.y = 0;
@@ -154,8 +154,8 @@ public class EnemyRandomRotate : EnemyLookRotate
     private Rigidbody _myRb;
     
     public override void RandomRotate()
-    {
-        if (!enemy.IsMinDistanse(enemy._minDistanceLookTarget))
+    { 
+        if (enemy.IsRandomRotate) // заменил везде вызовы проверок на свойство из EnemyBase
         { if (_time <= Time.time || enemy._isInCollision)
             {
                 Vector3 _dierectionOfRotate = enemy.RandomVector3(-10, 10);
@@ -166,7 +166,7 @@ public class EnemyRandomRotate : EnemyLookRotate
         }
     }
 
-    public override void EneterBexaviour()
+    public override void EneterBexaviour() 
     {
         _enemyTr = enemy._enemyTr;
         _playerTr = enemy._playerTr;

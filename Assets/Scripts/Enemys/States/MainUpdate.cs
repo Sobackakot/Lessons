@@ -22,7 +22,7 @@ public class MainUpdate : MonoBehaviour
         {
             var enemyBex = new EnemyInitBexaviors();
             var enemyState = new EnemyStateHandler();
-            enemyState.SetState(new EnemyIdleState(enemyBex.idle));
+            enemyState?.SetState(new EnemyIdleState(enemyBex.idle));
             InitBexaviours(e, enemyBex);
         }
     }
@@ -33,39 +33,41 @@ public class MainUpdate : MonoBehaviour
     {
         foreach (EnemyStateHandler eSH in _enemyStateHans.Values)
         {
-            eSH.UpdateState();
+            eSH?.UpdateState();
         }
+        foreach (var enemy in _enemyBases)// добавил вызов функции
+            ChangeStates(enemy);
 
     }
     private void LateUpdate()
     {
         foreach (EnemyStateHandler eSH in _enemyStateHans.Values)
         {
-            eSH.LateUpdateState();
+            eSH?.LateUpdateState();
         }
     }
     private void FixedUpdate()
     {
         foreach (EnemyStateHandler eSH in _enemyStateHans.Values)
         {
-            eSH.FixedUpdateState();
+            eSH?.FixedUpdateState();
         }
     }
-    private void ChangeStates(EnemyBase e)
+    private void ChangeStates(EnemyBase e) // забыл вызвать функцию в update
     {
         var bex = _initBexaviors[e];
         var state = _enemyStateHans[e];
-        if (e.IsIdel)
-        {
-            state.SetState(new EnemyIdleState(bex.idle));
+        if (e.IsIdle)
+        { 
+            state?.SetState(new EnemyIdleState(bex.idle));// везде добавил опператор <?> для обработки исключеней 
         }
-        else if (e.IsFollow)
+        else if (e.IsFollowTarget)
         {
-            state.SetState(new EnemyFollowStates(bex.followTar));
+            state?.SetState(new EnemyFollowStates(bex.followTar));
         }
         else if (e.IsRandomMove)
         {
-            state.SetState(new EnemyMoveState(bex.ranMove));
+            state?.SetState(new EnemyMoveState(bex.ranMove));
         }
     }
 

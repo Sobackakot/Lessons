@@ -18,26 +18,26 @@ public class EnemyIdleState : EnemyStateBase
     public override void EnterState()
     {
 
-        bexaviourHandler.EneterBexaviour();
+        bexaviourHandler?.EneterBexaviour();// везде добавил опператор <?> для обработки исключеней 
     }
 
     public override void ExitState()
     {
-        bexaviourHandler.ExidBexaviour();
+        bexaviourHandler?.ExidBexaviour();
     }
 
     public override void UpdateState()
     {
-        bexaviourHandler.Update();
+        bexaviourHandler?.Update();
     }
     public override void LateUpdateState()
     {
-        bexaviourHandler.LateUpdate();
+        bexaviourHandler?.LateUpdate(); 
     }
 
     public override void FixedUpdateState()
     {
-        bexaviourHandler.FixedUpdate();
+        bexaviourHandler?.FixedUpdate();
 
     }
 }
@@ -47,29 +47,29 @@ public class EnemyIdleState : EnemyStateBase
         {
            stateType = EnemyStateType.Move;
         }
-    public override EnemyStateType stateType { get; set; }
-    public override void EnterState()
+         public override EnemyStateType stateType { get; set; }
+        public override void EnterState()
         {
-            bexaviourHandler.EneterBexaviour();
+            bexaviourHandler?.EneterBexaviour();// везде добавил опператор <?> для обработки исключеней 
         }
 
         public override void ExitState()
         {
-            bexaviourHandler.ExidBexaviour();
+            bexaviourHandler?.ExidBexaviour();
         }
 
         public override void UpdateState()
         {
-            bexaviourHandler.Update();
+            bexaviourHandler?.Update();
         }
         public override void LateUpdateState()
         {
-            bexaviourHandler.LateUpdate();
+            bexaviourHandler?.LateUpdate();
         }
 
         public override void FixedUpdateState()
         {
-            bexaviourHandler.FixedUpdate();
+            bexaviourHandler?.FixedUpdate();
 
         }
     }
@@ -83,26 +83,26 @@ public class EnemyFollowStates : EnemyStateBase
 
     public override void EnterState()
     {
-        bexaviourHandler.EneterBexaviour();
+        bexaviourHandler?.EneterBexaviour();// везде добавил опператор <?> для обработки исключеней 
     }
 
     public override void ExitState()
     {
-        bexaviourHandler.ExidBexaviour();
+        bexaviourHandler?.ExidBexaviour();
     }
 
     public override void UpdateState()
     {
-        bexaviourHandler.Update();
+        bexaviourHandler?.Update();
     }
     public override void LateUpdateState()
     {
-        bexaviourHandler.LateUpdate();
+        bexaviourHandler?.LateUpdate();
     }
 
     public override void FixedUpdateState()
     {
-        bexaviourHandler.FixedUpdate();
+        bexaviourHandler?.FixedUpdate();
     }
 
 }

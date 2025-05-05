@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BehavioursEnemyBase :
+public abstract class BehavioursEnemyBase :  
     IEnemyMove,
     IEnemyRotate,
     IEnemyRandomMove,
@@ -12,7 +12,7 @@ public abstract class BehavioursEnemyBase :
     IEnemyIdel
 {
 
-    public BehavioursEnemyBase(EnemyBase enemy)
+    public BehavioursEnemyBase(EnemyBase enemy) // IUnitContext גלוסעמ EnemyBase
     {
         this.enemy = enemy;
     }
